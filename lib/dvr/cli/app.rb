@@ -3,21 +3,22 @@ module DVR
     class App < Thor
       namespace :dvr
 
-      desc "record", "Record episodes from API docs and playback as a Sinatra server file"
-      method_option :episode_location, :aliases => "-l", :desc => "The location of the JSON files to record", :required => true
+      desc "record FROM_DIRECTORY", "Record episodes from API docs and playback as a Sinatra server file"
       method_option :episode_format, :aliases => "-f", :desc => "The format of the provided files", :required => false
       method_option :episode_source, :aliases => "-s", :desc => "The source of the JSON files", :required => false
       method_option :destination, :aliases => "-d", :desc => "The destination for the recorded server file", :required => false
       method_option :filename, :aliases => "-n", :desc => "The name for the recorded server file", :required => false
-      def record
+      method_option :auto_create_directories, :aliases => "-a", :type => :boolean, :desc => "Flag to auto create directories", :required => false
+      def record(episode_location)
         configure_options!
+        DVR.configure {|c| c.episode_location = episode_location}
         DVR.record_and_download
       end
 
-      desc "play", "Play back recorded episodes by starting a Sinatra server"
-      method_option :recording_location, :aliases => "-r", :desc => "The location of the recorded Sinatra file", :required => true
-      def play
-        configure_options!
+      desc "play SERVER_FILE", "Play back recorded episodes by starting a Sinatra server"
+      def play(file)
+        puts "Playing episodes from #{file}"
+        DVR.configure {|c| c.recording_location = file}
         DVR.play
       end
 

@@ -18,7 +18,6 @@ module DVR
     protected
 
     def save
-      DVR.prep_destination
       File.open(DVR.download_location, 'w') do |f|
         f.write(sinatra_file_headers)
         f.write(before_hooks)

@@ -1,4 +1,6 @@
 require 'json'
+require 'pathname'
+require 'fileutils'
 require "dvr/version"
 require "dvr/configuration"
 require "dvr/episode"
@@ -27,13 +29,13 @@ module DVR
   end
 
   def download_location
-    @download_location ||= File.join(DVR.configuration.destination, DVR.configuration.filename)
+    @download_location ||= File.join(DVR.configuration.full_destination, DVR.configuration.filename)
   end
 
   def prep_destination
     unless File.directory?(DVR.configuration.destination)
+      FileUtils.mkdir_p(DVR.configuration.destination)
       puts "Created destination directory at #{DVR.configuration.destination}"
-      Dir.mkdir(DVR.configuration.destination)
     else
       puts "Used existing destination directory at #{DVR.configuration.destination}"
     end
