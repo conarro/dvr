@@ -12,8 +12,8 @@ A nice side effect of using DVR is that it relies on recorded API responses (for
 ## Installation & Usage
 ``` bash
     $ gem install dvr
-    $ dvr record path/to/my_rails_app/rspec-api-documentation # supports relative path
-    $ dvr play path/to/recorded/dvr/server.rb                 # supports relative path
+    $ dvr record 'path/to/my_rails_app/rspec-api-documentation' # supports relative path
+    $ dvr play 'path/to/recorded/dvr/server.rb'                 # supports relative path
 ```
 *Note that this is a command-line tool that doesn't need to be in your Gemfile.
 
