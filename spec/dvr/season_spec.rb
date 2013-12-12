@@ -21,13 +21,4 @@ describe DVR::Season do
     end
   end
 
-  describe '#download_location' do
-    # it 'saves to the destination' do
-    #   expect(season.download_location.split('/').first).to eq(DVR.configuration.destination)
-    # end
-
-    it 'saves to the destination' do
-      expect(season.download_location.split('/').last).to eq(DVR.configuration.filename)
-    end
-  end
 end
