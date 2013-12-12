@@ -16,7 +16,7 @@ describe DVR::Configuration do
     end
 
     it 'has a destination directory to record to' do
-      expect(File.directory?(subject.destination)).to be_true
+      expect(subject.destination).to be_a(String)
     end
 
     it 'has a server name to use for the recorded file' do
