@@ -1,0 +1,50 @@
+{
+  "resource": "Har Records",
+  "http_method": "POST",
+  "route": "api/v1/har_records",
+  "description": "Creating a single record",
+  "explanation": null,
+  "parameters": [
+    {
+      "name": "har_url",
+      "description": "The URL of the HAR file"
+    },
+    {
+      "name": "account_id",
+      "description": "The account id to associate with the record"
+    },
+    {
+      "name": "check_id",
+      "description": "The check id to associate with the record"
+    },
+    {
+      "name": "check_run_history_id",
+      "description": "The check run history id to associate with the record"
+    },
+    {
+      "name": "location_id",
+      "description": "The location id to associate with the record"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "api/v1/har_records",
+      "request_body": "har_record[account_id]=1&har_record[check_id]=1&har_record[location_id]=1&har_record[check_run_history_id]=1&har_record[har_url]=https%3A%2F%2Fs3.amazonaws.com%2Fcheckdata.rigor.com%2F2.harp",
+      "request_headers": {
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 202,
+      "response_status_text": "Accepted",
+      "response_body": "{\"job_id\":\"00c5ff51ca644e3f3de14dd5\"}",
+      "response_headers": {"X-Frame-Options":"SAMEORIGIN","X-XSS-Protection":"1; mode=block","X-Content-Type-Options":"nosniff","X-UA-Compatible":"chrome=1","Content-Type":"application/json; charset=utf-8","Cache-Control":"no-cache","X-Request-Id":"c972cd0e-608b-48a5-b1b9-cbcf7054ff42","X-Runtime":"0.028218","Content-Length":"37"},
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+}
+  ]
+}
