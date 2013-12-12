@@ -7,6 +7,20 @@ module Kernel
 end
 
 describe DVR do
+
+  before :all do
+    @tmp_path = File.expand_path('../../tmp_dvr_destination', __FILE__)
+    tmp_dir = Dir.mkdir(@tmp_path)
+    @configuration = DVR.configure do |c|
+      c.destination = @tmp_path
+      c.recording_location = @tmp_path
+    end
+  end
+
+  after :all do
+    Dir.rmdir(@tmp_path)
+  end
+
   describe '#play' do
     it 'plays back a recorded server' do
       expect(DVR.play).to eq("bundle exec ruby #{DVR.configuration.recording_location}")
