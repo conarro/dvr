@@ -8,6 +8,10 @@ require "dvr/season"
 module DVR
   extend self
 
+  def play
+    `bundle exec ruby #{DVR.configuration.recording_location}`
+  end
+
   def record
     raise DVR::InvalidConfiguration unless configuration.episode_location
     recorder.get_season

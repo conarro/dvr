@@ -14,6 +14,13 @@ module DVR
         DVR.record_and_download
       end
 
+      desc "play", "Play back recorded episodes by starting a Sinatra server"
+      method_option :recording_location, :aliases => "-r", :desc => "The location of the recorded Sinatra file", :required => true
+      def play
+        configure_options!
+        DVR.play
+      end
+
       private
 
       def configure_options!
