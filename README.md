@@ -12,18 +12,18 @@ A nice side effect of using DVR is that it relies on recorded API responses (for
 ## Installation & Usage
 ``` bash
     $ gem install dvr
-    $ dvr record --episode-location '/absolute/path/to/rspec-api-documentation'
+    $ dvr record path/to/my_rails_app/rspec-api-documentation # supports relative path
+    $ dvr play path/to/recorded/dvr/server.rb                 # supports relative path
 ```
 *Note that this is a command-line tool that doesn't need to be in your Gemfile.
 
-### Options
+### Recording Options
 ``` bash
-  -l, [--episode-location=EPISODE_LOCATION] # The location of the recorded HTTP responses
-  -n, [--filename=FILENAME]                 # The name for the recorded server file
-  -f, [--episode-format=EPISODE_FORMAT]     # The format of the provided files
-  -s, [--episode-source=EPISODE_SOURCE]     # The source of the JSON files
-  -l, --episode-location=EPISODE_LOCATION   # The location of the JSON files to record
-  -d, [--destination=DESTINATION]           # The destination for the recorded server file
+  -n, [--filename=FILENAME]                 # The name for the recorded server file. Defaults to dvr_server.rb
+  -f, [--episode-format=EPISODE_FORMAT]     # The format of the provided files. Defaults to rspec-api-documentation
+  -s, [--episode-source=EPISODE_SOURCE]     # The source of the JSON files. Defaults to file system
+  -d, [--destination=DESTINATION]           # The destination for the recorded server file. Defaults to pwd/dvr
+  -a, [--auto-create-directories]           # Flag to auto create destination directories. Defaults to true
 ```
 ## Contributing
 
