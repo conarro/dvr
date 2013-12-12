@@ -1,10 +1,9 @@
 module DVR
   class Season
-    attr_reader :episodes, :download_location
+    attr_reader :episodes
 
     def initialize episodes
       @episodes = episodes
-      @download_location = [DVR.configuration.destination, DVR.configuration.filename].join("/")
     end
 
     def binge_watch
@@ -12,13 +11,15 @@ module DVR
     end
 
     def download
+      puts 'Downloading season to destination...'
       save
     end
 
     protected
 
     def save
-      File.open(download_location, 'w') do |f|
+      DVR.prep_destination
+      File.open(DVR.download_location, 'w') do |f|
         f.write(sinatra_file_headers)
         f.write(before_hooks)
         f.write(binge_watch)

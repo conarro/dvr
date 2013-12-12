@@ -2,6 +2,7 @@ module DVR
   class Recorder
 
     def get_episodes
+      puts "Recording episodes..."
       Episode.batch_record(parsed_files)
     end
 
