@@ -5,7 +5,7 @@ require 'dvr/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "dvr"
-  spec.version       = Dvr::VERSION
+  spec.version       = DVR::VERSION
   spec.authors       = ["Kyle Conarro"]
   spec.email         = ["kyle.conarro@rigor.com"]
   spec.description   = "Mimic your Rails API backend by generating a fake server using recorded HTTP responses"

@@ -1,3 +1,3 @@
-module Dvr
+module DVR
   VERSION = "0.0.3"
 end

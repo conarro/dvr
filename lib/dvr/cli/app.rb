@@ -3,6 +3,12 @@ module DVR
     class App < Thor
       namespace :dvr
 
+      map "-v" => :version
+      desc "version", "Show DVR version", :hide => true
+      def version
+        puts DVR::VERSION
+      end
+
       desc "record FROM_DIRECTORY", "Record episodes from API docs and playback as a Sinatra server file"
       method_option :episode_format, :aliases => "-f", :desc => "The format of the provided files", :required => false
       method_option :episode_source, :aliases => "-s", :desc => "The source of the JSON files", :required => false
