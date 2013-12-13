@@ -16,7 +16,7 @@ module DVR
 
     def play
       translate.map do |e|
-        "#{e[:method]} '#{e[:path]}' do\n '#{e[:response].body}'\nend\n\n"
+        "#{e[:method]} '#{e[:path]}' do\n\tstatus #{e[:response].status_code}\n\tbody '#{e[:response].body}'\nend"
       end.join
     end
 

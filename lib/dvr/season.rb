@@ -7,7 +7,7 @@ module DVR
     end
 
     def binge_watch
-      episodes.map(&:play).join
+      episodes.map(&:play).join("\n\n")
     end
 
     def download
