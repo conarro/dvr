@@ -24,7 +24,7 @@ module DVR
       data.map do |req|
         {
           :method => req['request_method'].downcase,
-          :path => req['request_path'].gsub('?', '/'),
+          :path => build_request_path(req),
           :response => build_response(req)
         }
       end
@@ -32,6 +32,11 @@ module DVR
 
     def data
       content.fetch('requests')
+    end
+
+    def build_request_path req
+      path = ['POST', 'PATCH', 'DELETE'].include?(req['request_method']) ? "/#{req['request_path']}" : req['request_path']
+      path.gsub('?', '/')
     end
 
     def build_response req
