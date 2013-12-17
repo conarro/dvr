@@ -1,4 +1,4 @@
-# DVR [![Build Status](https://travis-ci.org/kconarro14/dvr.png?branch=master)](https://travis-ci.org/kconarro14/dvr)
+# DVR [![Build Status](https://travis-ci.org/kconarro14/dvr.png?branch=master)](https://travis-ci.org/kconarro14/dvr) [![Gem Version](https://badge.fury.io/rb/dvr.png)](http://badge.fury.io/rb/dvr)
 
 DVR makes it easy to mimic your Rails API backend by generating a fake server using recorded HTTP responses.
 
